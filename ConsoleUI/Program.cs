@@ -13,35 +13,67 @@ namespace ConsoleUI
 
            CarManager carManager = new CarManager(new EfCarDal());
             Console.WriteLine("isim        Id     Model      Günlük Ücreti     Açıklama");
-            Console.WriteLine("___________________________________________________________");
+            Console.WriteLine("________________________________________________________________________________________");
             foreach (var car in carManager.GetAll())
             {
                 Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
             }
 
             Console.WriteLine("\n\nBrandId'si 2 Olan Araçların Listelenmesi");
-            Console.WriteLine("__________________________________________________");
+            Console.WriteLine("________________________________________________________________________________________");
             foreach (var car in carManager.GetCarsByBrandId(2))
             {
                 Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
             }
 
             Console.WriteLine("\n\nColorId'si 2 Olan Araçların Listelenmesi");
-            Console.WriteLine("___________________________________________________");
+            Console.WriteLine("________________________________________________________________________________________");
             foreach (var car in carManager.GetCarsByColorId(2))
             {
                 Console.WriteLine(car.CarName + "           " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
             }
+          
             Console.WriteLine("\n\nYeni Araç Ekleme Ve Tüm Listenin Tekrar Listelenmesi");
-            Console.WriteLine("__________________________________________________");
-            carManager.Add(new Car {CarName = "Nissa", BrandId = 2, ColorId = 2, DailyPrice = 1000, Description = "Nissan Juke", ModelYear = 2015 });
+            System.Console.Write("Marka Id : ");
+            int bId = Convert.ToInt32(System.Console.ReadLine());
+            System.Console.Write("Renk Id : ");
+            int cId = Convert.ToInt32(System.Console.ReadLine());
+            System.Console.Write("Araç İsmi : ");
+            string carName = System.Console.ReadLine();
+            System.Console.Write("Model Yılı : ");
+            int modelYear = Convert.ToInt32(System.Console.ReadLine());
+            System.Console.Write("Günlük Kira Bedeli : ");
+            decimal price = Convert.ToDecimal(System.Console.ReadLine());
+            System.Console.Write("Açıklama : ");
+            string desc = System.Console.ReadLine();
+
+            Car newCar = new Car
+            {
+                BrandId = bId,
+                ColorId = cId,
+                CarName = carName,
+                ModelYear = modelYear,
+                DailyPrice = (int)price,
+                Description = desc
+            };
+
+            carManager.Add(newCar);
+            Console.WriteLine("________________________________________________________________________________________");
             foreach (var car in carManager.GetAll())
             {
                 Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
             }
 
+            Console.WriteLine("________________________________________________________________________________________");
+            Console.WriteLine("________________________________________________________________________________________");
 
-
+            /*  Console.WriteLine("\n\nYeni Araç Ekleme Ve Tüm Listenin Tekrar Listelenmesi");
+             Console.WriteLine("__________________________________________________");
+             carManager.Add(new Car {CarName = "Nissa", BrandId = 2, ColorId = 2, DailyPrice = 1000, Description = "Nissan Juke", ModelYear = 2015 });
+             foreach (var car in carManager.GetAll())
+             {
+                 Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
+             }*/
 
 
 
