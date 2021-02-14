@@ -19,7 +19,7 @@ namespace ConsoleUI
                 Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
             }
 
-            Console.WriteLine("\n\nBrandId'si 1 Olan Araçların Listelenmesi");
+            Console.WriteLine("\n\nBrandId'si 2 Olan Araçların Listelenmesi");
             Console.WriteLine("__________________________________________________");
             foreach (var car in carManager.GetCarsByBrandId(2))
             {
