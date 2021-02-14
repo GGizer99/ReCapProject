@@ -27,7 +27,7 @@ namespace ConsoleUI
             }
 
             Console.WriteLine("\n\nColorId'si 2 Olan Araçların Listelenmesi");
-            Console.WriteLine("__________________________________________________");
+            Console.WriteLine("___________________________________________________");
             foreach (var car in carManager.GetCarsByColorId(2))
             {
                 Console.WriteLine(car.CarName + "           " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
