@@ -10,27 +10,42 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-
-           CarManager carManager = new CarManager(new EfCarDal());
-            Console.WriteLine("isim        Id     Model      Günlük Ücreti     Açıklama");
-            Console.WriteLine("________________________________________________________________________________________");
-            foreach (var car in carManager.GetAll())
+            /*BrandManager brandManager = new BrandManager(new EfBrandDal());
+            foreach (var brand in brandManager.GetAll())
             {
-                Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
+                Console.WriteLine(brand.BrandName);
+            }*/
+           CarManager carManager = new CarManager(new EfCarDal());
+            Console.WriteLine("________________________________________________________________________________________");
+            foreach (var car in carManager.GetCarDetails())
+            {
+                
+                Console.WriteLine(
+                    "Aracın adı : " + car.CarName + "\n"+
+                    "Aracın Markası : " + car.BrandName + "\n" +
+                    "Aracın Rengi : " + car.ColorName + "\n" +
+                    "Aracın Yılı : " + car.ModelYear + "\n" +
+                    "Günlük Ücret : " + car.DailyPrice + "\n" +
+                    "Açıklama : " + car.Description + "\n"+
+                    "________________________________________");
+                //" Aracın Id'si : " + car.Id +
             }
+            Console.WriteLine("________________________________________________________________________________________");
 
-            Console.WriteLine("\n\nBrandId'si 2 Olan Araçların Listelenmesi");
+            /*Console.WriteLine("\n\nBrandId'si 2 Olan Araçların Listelenmesi");
             Console.WriteLine("________________________________________________________________________________________");
             foreach (var car in carManager.GetCarsByBrandId(2))
             {
-                Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
+                Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " 
+                    + car.DailyPrice + "         " + car.Description);
             }
 
             Console.WriteLine("\n\nColorId'si 2 Olan Araçların Listelenmesi");
             Console.WriteLine("________________________________________________________________________________________");
             foreach (var car in carManager.GetCarsByColorId(2))
             {
-                Console.WriteLine(car.CarName + "           " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
+                Console.WriteLine(car.CarName + "           " + car.Id + "      " + car.ModelYear + 
+                    "           " + car.DailyPrice + "         " + car.Description);
             }
           
             Console.WriteLine("\n\nYeni Araç Ekleme Ve Tüm Listenin Tekrar Listelenmesi");
@@ -59,13 +74,20 @@ namespace ConsoleUI
 
             carManager.Add(newCar);
             Console.WriteLine("________________________________________________________________________________________");
-            foreach (var car in carManager.GetAll())
+            foreach (var car in carManager.GetCarDetails())
             {
-                Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
+                Console.WriteLine(
+                     "Aracın adı : " + car.CarName + "\n" +
+                     "Aracın Markası : " + car.BrandName + "\n" +
+                     "Aracın Rengi : " + car.ColorName + "\n" +
+                     "Aracın Yılı : " + car.ModelYear + "\n" +
+                     "Günlük Ücret : " + car.DailyPrice + "\n" +
+                     "Açıklama : " + car.Description + "\n" +
+                     "________________________________________");
             }
 
-            Console.WriteLine("________________________________________________________________________________________");
-            Console.WriteLine("________________________________________________________________________________________");
+            Console.WriteLine("________________________________________________________________________________________");*/
+            
 
             /*  Console.WriteLine("\n\nYeni Araç Ekleme Ve Tüm Listenin Tekrar Listelenmesi");
              Console.WriteLine("__________________________________________________");
@@ -74,11 +96,6 @@ namespace ConsoleUI
              {
                  Console.WriteLine(car.CarName + "      " + car.Id + "      " + car.ModelYear + "           " + car.DailyPrice + "         " + car.Description);
              }*/
-
-
-
-
-
 
             /*CarManager carManager = new CarManager(new EfCarDal());
 
